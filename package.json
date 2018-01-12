@@ -1,6 +1,6 @@
 {
   "name": "minimist.re",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "start": "bsb -make-world -w -backend native",
     "build": "bsb -make-world -backend native",

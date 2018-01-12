@@ -73,7 +73,6 @@ let parse = (~alias=[], ~presence=[], ~bools=[], ~floats=[], ~ints=[], ~strings=
           String.sub(name, 1, String.length(name) - 1)
         })
       } else {None};
-      print_endline(name);
       switch arg {
       | None => loop(rest, {...opts, rest: [name, ...opts.rest]})
       | Some(name) =>
