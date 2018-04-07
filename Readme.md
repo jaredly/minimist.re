@@ -28,6 +28,7 @@ let fail = (msg) => {
 };
 
 let args = List.tl(Array.to_list(Sys.argv));
+/* Some example args for you */
 let args = ["--base", "awesome", "some-entry.js"];
 
 switch (parse(args)) {

@@ -1,0 +1,128 @@
+
+    
+<!doctype html>
+<meta charset=utf8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel=stylesheet href='../styles.css'>
+<script defer src='../script.js'></script>
+<title>Minimist</title>
+<body>
+<script>window.relativeToRoot=".."</script>
+<div id='error-message'>
+  ⚠️ Oops! This page doesn't appear to define a <span>type</span> called <code>_</code>.
+</div>
+
+    <script>window.shouldCheckHashes=true</script>
+    <div class='container'>
+    
+    <div class='sidebar-wrapper'>
+    <div class='sidebar-expander'>Show navigation</div>
+    <div class='sidebar'>
+      <a href="../search.html" style="display: block; padding: 0 8px;">Search</a>
+      <div class='docs-listing'><a href="../index.html">Home</a></div>
+      <div class='table-of-contents'>
+      <div class='toc-header'>Page Contents</div>
+      <a href="#Minimist" class='level-1 header'>Minimist</a>
+<a href="#module-StrMap" class='level-2 module'>StrMap</a>
+<a href="#module-StrSet" class='level-2 module'>StrSet</a>
+<a href="#type-result" class='level-2 type'>result</a>
+<a href="#type-opts" class='level-2 type'>opts</a>
+<a href="#value-empty" class='level-2 value'>empty</a>
+<a href="#value-maybeAssoc" class='level-2 value'>maybeAssoc</a>
+<a href="#value-getValue" class='level-2 value'>getValue</a>
+<a href="#value-getBool" class='level-2 value'>getBool</a>
+<a href="#value-getFloat" class='level-2 value'>getFloat</a>
+<a href="#value-getInt" class='level-2 value'>getInt</a>
+<a href="#value-parse" class='level-2 value'>parse</a>
+<a href="#value-get" class='level-2 value'>get</a>
+<a href="#value-multi" class='level-2 value'>multi</a>
+<a href="#value-report" class='level-2 value'>report</a>
+      </div>
+      <div class='project-listing'><div class='project-title'>Package modules</div><a href="Minimist.html">Minimist</a>
+<a href="Test.html">Test</a></div>
+    </div>
+    </div>
+  
+    <div class='main'>
+    <a href="https://github.com/jaredly/minimist.re/blob/master/./src/Minimist.re" class="edit-link">Edit</a>
+    <a href="#Minimist" id="Minimist"><h1>Minimist</h1></a>
+
+<p><span class='missing'>This module does not have a toplevel documentation block.</span></p>
+<div class='doc-item'><h4 class='item module'>module <a href="#module-StrMap" id="module-StrMap">StrMap</a> : Map.Make</h4></div>
+
+<div class='doc-item'><h4 class='item module'>module <a href="#module-StrSet" id="module-StrSet">StrSet</a> : Set.Make</h4></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-result" id="type-result">result</a>('a, 'b) = | Ok('a) | Error('b)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>type <a href="#type-opts" id="type-opts">opts</a> = {
+    presence: <a href="#module-StrSet">StrSet</a>.<a href="#type-StrSet.t">t</a>,
+    bools: <a href="#module-StrMap">StrMap</a>.<a href="#type-StrMap.t">t</a>(bool),
+    floats: <a href="#module-StrMap">StrMap</a>.<a href="#type-StrMap.t">t</a>(float),
+    ints: <a href="#module-StrMap">StrMap</a>.<a href="#type-StrMap.t">t</a>(int),
+    strings: <a href="#module-StrMap">StrMap</a>.<a href="#type-StrMap.t">t</a>(string),
+    multi: <a href="#module-StrMap">StrMap</a>.<a href="#type-StrMap.t">t</a>(list(string)),
+    rest: list(string)
+}</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-empty" id="value-empty">empty</a> = <a href="#type-opts">opts</a></h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-maybeAssoc" id="value-maybeAssoc">maybeAssoc</a> = ('a, list(('a, 'a))) => option('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getValue" id="value-getValue">getValue</a> = list(string) => option(
+    (string, list(string))
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getBool" id="value-getBool">getBool</a> = list(string) => option((bool, list(string)))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getFloat" id="value-getFloat">getFloat</a> = list(string) => option((float, list(string)))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-getInt" id="value-getInt">getInt</a> = list(string) => option((int, list(string)))</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-parse" id="value-parse">parse</a> = (
+    ~?alias: option(list((string, <a href="#type-StrSet.elt" title="StrSet.elt">elt</a>))),
+    ~?presence: option(list(<a href="#type-StrSet.elt" title="StrSet.elt">elt</a>)),
+    ~?bools: option(list(<a href="#type-StrSet.elt" title="StrSet.elt">elt</a>)),
+    ~?floats: option(list(<a href="#type-StrSet.elt" title="StrSet.elt">elt</a>)),
+    ~?ints: option(list(<a href="#type-StrSet.elt" title="StrSet.elt">elt</a>)),
+    ~?strings: option(list(<a href="#type-StrSet.elt" title="StrSet.elt">elt</a>)),
+    ~?multi: option(list(<a href="#type-StrSet.elt" title="StrSet.elt">elt</a>)),
+    list(string)
+) => <a href="#type-result">result</a>(
+    <a href="#type-opts">opts</a>,
+    [&gt; `BadValue of StrSet.elt * string | `Unknown of StrSet.elt ]
+)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-get" id="value-get">get</a> = (<a href="#module-StrMap">StrMap</a>.<a href="#type-StrMap.t">t</a>('a), <a href="#type-StrMap.key" title="StrMap.key">key</a>) => option('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-multi" id="value-multi">multi</a> = (<a href="#module-StrMap">StrMap</a>.<a href="#type-StrMap.t">t</a>(list('a)), <a href="#type-StrMap.key" title="StrMap.key">key</a>) => list('a)</h4>
+
+<div class='body body-empty'></div></div>
+
+<div class='doc-item'><h4 class='item'>let <a href="#value-report" id="value-report">report</a> = [&lt; `BadValue of string * string | `Unknown of string ] => string</h4>
+
+<div class='body body-empty'></div></div>
+
+    </div>
+    <div class='right-blank'></div>
+    </div>
+  

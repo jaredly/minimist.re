@@ -7,6 +7,10 @@
     "test": "./lib/bs/native/test.native --verbose ./test",
     "clean": "bsb -clean-world"
   },
+  "repository": {
+    "url": "jaredly/minimist.re",
+    "type": "git"
+  },
   "keywords": [
     "BuckleScript"
   ],
