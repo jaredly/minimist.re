@@ -4,8 +4,8 @@ A no-frills cli argument parser for reason, inspired by [minimist](https://www.n
 
 ## Example usage
 (from [pack.re](https://www.npmjs.com/package/pack.re)):
-```
 
+```reason
 let parse = Minimist.parse(~alias=[("h", "help")], ~presence=["help"], ~multi=["rename"], ~strings=["base"]);
 
 let help = {|
@@ -27,22 +27,21 @@ let fail = (msg) => {
   exit(1);
 };
 
-switch (parse(List.tl(Array.to_list(Sys.argv)))) {
+let args = List.tl(Array.to_list(Sys.argv));
+let args = ["--base", "awesome", "some-entry.js"];
+
+switch (parse(args)) {
 | Minimist.Error(err) => fail(Minimist.report(err))
 | Ok(opts) =>
 if (Minimist.StrSet.mem("help", opts.presence)) {
   print_endline(help); exit(0);
 } else switch (opts.rest) {
   | [] => fail("Expected entry file as final argument")
-  | [entry] => process(
-      ~base=?Minimist.get(opts.strings, "base"),
-      ~renames=
-        List.map(item => switch (Str.split(Str.regexp("="), item)) {
-        | [alias, m] => (alias, m)
-        | _ => fail("Expected rename argument to be of the form alias=realname")
-        }, Minimist.multi(opts.multi, "rename")),
-      entry
-    ) |> print_endline
+  | [entry] => {
+    let base = Minimist.get(opts.strings, "base");
+    let renames = Minimist.multi(opts.multi, "rename");
+    print_endline("All good!")
+  }
   | _ => fail("Only one entry file allowed")
 }
 };
